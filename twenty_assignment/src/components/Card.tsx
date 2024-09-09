@@ -49,9 +49,11 @@ const Card: React.FC = () => {
                 </div>
             )
         } else if (icon === 'return') {
+            const firstLetter = name.charAt(0).toUpperCase();
+
             return (
-                <div>
-                    <KeyboardReturnIcon />
+                <div className="flex">
+                    <KeyboardReturnIcon /> &nbsp;&nbsp;&nbsp;<div className="flex items-center justify-center w-6 h-6 bg-green-400 text-white font-bold rounded-full">{firstLetter}</div> 
                 </div>
             )
         } else if (icon === 'calendar') {
