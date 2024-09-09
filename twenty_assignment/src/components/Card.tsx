@@ -19,7 +19,7 @@ const Card: React.FC = () => {
     const currentDate = new Date();
 
     const day = currentDate.getDate();
-    const month = currentDate.getMonth() + 1; // Months are zero-based, so we add 1
+    const month = currentDate.getMonth() + 1;
     const year = currentDate.getFullYear();
 
     const items: CardItems[] = [
@@ -35,7 +35,6 @@ const Card: React.FC = () => {
         if (icon === 'check') {
             if (!name) return "";
             const firstLetter = name.charAt(0).toUpperCase();
-
 
             return (
                 <div className="flex">
@@ -75,12 +74,12 @@ const Card: React.FC = () => {
                 </div>
             )
         } else if (icon === 'user') {
-                return (
-                    <div>
-                        <PersonIcon />
-                        <span className="card-name bg-gray-200 px-2 py-1 rounded-sm">{name}</span>
-                    </div>
-                )
+            return (
+                <div>
+                    <PersonIcon />
+                    <span className="card-name bg-gray-200 px-2 py-1 rounded-sm">{name}</span>
+                </div>
+            )
         }
     }
 
@@ -89,7 +88,6 @@ const Card: React.FC = () => {
         {items.map((item, index) => (
           <div key={index} className="card-item">
             {icons(item.name, item.icon)}
-            {/* <span className="card-name">{item.name}</span> */}
           </div>
         ))}
       </div>

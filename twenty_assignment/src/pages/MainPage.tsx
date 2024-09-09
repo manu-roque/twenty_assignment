@@ -4,13 +4,13 @@ import '../style/MainPage.css';
 
 interface Column {
     title: string;
-    cardCount: number; // Number of cards to display in this column
+    cardCount: number;
   }
 
 const MainPage: React.FC = () => {
-  const getRandomCardCount = (min: number, max: number) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+    const getRandomCardCount = (min: number, max: number) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
 
     const columns: Column[] = [
         { title: "New", cardCount: getRandomCardCount(1, 5) },
@@ -19,7 +19,6 @@ const MainPage: React.FC = () => {
         { title: "Proposal", cardCount: getRandomCardCount(1, 5) },
         { title: "Customer", cardCount: getRandomCardCount(1, 5) },
     ];
-
 
     return (
         <div className="main-container">
