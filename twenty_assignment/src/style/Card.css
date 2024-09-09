@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card-container {
+    @apply max-w-sm mx-auto bg-white shadow-lg rounded-lg p-6
+}
+
+.card-title {
+    @apply text-xl font-semibold mb-4
+}
+
+.card-item {
+    @apply flex items-center mb-3
+}
+
+.card-icon {
+    @apply w-6 h-6 text-blue-500
+}
+
+.card-name {
+    @apply ml-3 text-gray-700
+}
