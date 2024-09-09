@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../components/Card'
+import '../style/MainPage.css';
 
 interface Column {
     title: string;
@@ -21,16 +22,16 @@ const MainPage: React.FC = () => {
 
 
     return (
-        <div className="flex space-x-4 p-4">
+        <div className="main-container">
         {columns.map((column, colIndex) => (
-          <div key={colIndex} className="w-1/5 flex flex-col">
-            <div className="flex mb-4 text-left font-semibold text-lg ">
-              <div className="flex items-center justify-center w-auto h-6 bg-green-400 text-white font-bold rounded-md px-2">{column.title}</div>&nbsp;{column.cardCount}
+          <div key={colIndex} className="column-container">
+            <div className="column-title">
+              <div className="title-text">{column.title}</div>&nbsp;{column.cardCount}
             </div>
   
             {colIndex > 0 && <div className="border-l"></div>}
   
-            <div className="flex-grow space-y-4">
+            <div className="cards">
               {Array.from({ length: column.cardCount }).map((_, cardIndex) => (
                 <Card
                   key={cardIndex}

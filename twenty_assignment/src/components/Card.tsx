@@ -38,40 +38,47 @@ const Card: React.FC = () => {
 
 
             return (
-                <div className="flex items-center justify-center w-6 h-6 bg-green-400 text-white font-bold rounded-full">
-                    {firstLetter}
+                <div className="flex">
+                    <div className="flex items-center justify-center w-6 h-6 bg-green-400 text-white font-bold rounded-full">
+                        {firstLetter}
+                    </div>
+                    <span className="card-name font-bold">{name}</span>
                 </div>
             )
         } else if (icon === 'money') {
             return (
                 <div>
                     <AttachMoneyIcon />
+                    <span className="card-name">{name}</span>
                 </div>
             )
         } else if (icon === 'return') {
             const firstLetter = name.charAt(0).toUpperCase();
-
             return (
-                <div className="flex">
-                    <KeyboardReturnIcon /> &nbsp;&nbsp;&nbsp;<div className="flex items-center justify-center w-6 h-6 bg-green-400 text-white font-bold rounded-full">{firstLetter}</div> 
-                </div>
+                    <div className="flex">
+                        <KeyboardReturnIcon /> &nbsp;&nbsp;&nbsp;<div className="flex items-center justify-center w-6 h-6 bg-green-400 text-white font-bold rounded-full">{firstLetter}</div> 
+                        <span className="card-name">{name}</span>
+                    </div>
             )
         } else if (icon === 'calendar') {
             return (
                 <div>
                     <EventIcon />
+                    <span className="card-name">{name}</span>
                 </div>
             )
         } else if (icon === 'building') {
             return (
                 <div>
                     <BusinessIcon />
+                    <span className="card-name bg-gray-200 px-2 rounded-sm">{name}</span>
                 </div>
             )
         } else if (icon === 'user') {
                 return (
                     <div>
                         <PersonIcon />
+                        <span className="card-name bg-gray-200 px-2 py-1 rounded-sm">{name}</span>
                     </div>
                 )
         }
@@ -82,7 +89,7 @@ const Card: React.FC = () => {
         {items.map((item, index) => (
           <div key={index} className="card-item">
             {icons(item.name, item.icon)}
-            <span className="card-name">{item.name}</span>
+            {/* <span className="card-name">{item.name}</span> */}
           </div>
         ))}
       </div>

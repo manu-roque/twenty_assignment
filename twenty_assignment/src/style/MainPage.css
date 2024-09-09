@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-container {
+    @apply flex space-x-4 p-4
+}
+
+.column-container {
+    @apply w-1/5 flex flex-col
+}
+
+.column-title {
+    @apply flex mb-4 text-left font-semibold text-lg
+}
+
+.title-text {
+    @apply flex items-center justify-center w-auto h-6 bg-green-400 text-white font-bold rounded-md px-2
+}
+
+.cards {
+    @apply flex-grow space-y-4
+}
