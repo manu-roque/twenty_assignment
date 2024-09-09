@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
@@ -9,20 +10,25 @@ import PersonIcon from '@mui/icons-material/Person';
 
 import '../style/Card.css'
 
-interface Item {
+interface CardItems {
     name: string;
     icon: string;
 }
 
 const Card: React.FC = () => {
+    const currentDate = new Date();
 
-    const items: Item[] = [
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1; // Months are zero-based, so we add 1
+    const year = currentDate.getFullYear();
+
+    const items: CardItems[] = [
         { name: "name", icon: "check" },
-        { name: "money", icon: "money" },
-        { name: "name2", icon: "return" },
-        { name: "date", icon: "calendar" },
-        { name: "company", icon: "building" },
-        { name: "user", icon: "user" },
+        { name: "40k", icon: "money" },
+        { name: "Noah H", icon: "return" },
+        { name: `${day} ${month} ${year}`, icon: "calendar" },
+        { name: "Twenty", icon: "building" },
+        { name: "John Doe", icon: "user" },
       ];
 
     const icons = (name: string, icon: string) => {
@@ -32,7 +38,7 @@ const Card: React.FC = () => {
 
 
             return (
-                <div className="font-bold">
+                <div className="flex items-center justify-center w-6 h-6 bg-green-400 text-white font-bold rounded-full">
                     {firstLetter}
                 </div>
             )
@@ -71,30 +77,9 @@ const Card: React.FC = () => {
 
     return (
         <div className="card-container">
-        {/* Title of the Card */}
-        {/* <h2 className="card-title">Card Title</h2> */}
-  
-        {/* Iterate through each item and render a row */}
         {items.map((item, index) => (
           <div key={index} className="card-item">
-            {/* Icon - You can customize this SVG or replace it with any icon set */}
             {icons(item.name, item.icon)}
-            {/* <svg
-              className="card-icon"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 13l4 4L19 7"
-              ></path>
-            </svg> */}
-  
-            {/* Name */}
             <span className="card-name">{item.name}</span>
           </div>
         ))}
