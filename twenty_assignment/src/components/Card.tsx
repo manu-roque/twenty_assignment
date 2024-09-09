@@ -70,7 +70,7 @@ const Card: React.FC = () => {
             return (
                 <div>
                     <BusinessIcon />
-                    <span className="card-name bg-gray-200 px-2 rounded-sm">{name}</span>
+                    <span className="card-name bg-gray-200 px-2 py-1 rounded-sm">{name}</span>
                 </div>
             )
         } else if (icon === 'user') {
